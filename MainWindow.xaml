@@ -1,0 +1,44 @@
+﻿<Window x:Class="PurgeWizard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PurgeWizard"
+        mc:Ignorable="d"
+        Title="PurgeWizard" Height="548" Width="710" Icon="/icons/wizard.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="98*" MaxWidth="90" MinWidth="90"/>
+            <ColumnDefinition Width="381*"/>
+            <ColumnDefinition Width="80*" MaxWidth="80" MinWidth="80"/>
+            <ColumnDefinition Width="80*" MaxWidth="80" MinWidth="80"/>
+            <ColumnDefinition Width="100*" MaxWidth="100" MinWidth="100"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*" MaxHeight="40" MinHeight="40"/>
+            <RowDefinition Height="49*" MaxHeight="40" MinHeight="40"/>
+            <RowDefinition Height="181*"/>
+            <RowDefinition Height="40*" MaxHeight="40" MinHeight="40"/>
+            <RowDefinition Height="222*"/>
+            <RowDefinition Height="40*" MaxHeight="40" MinHeight="40"/>
+        </Grid.RowDefinitions>
+        <ListBox x:Name="Tbx_fileList" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="5" Margin="10,10,10,10" Grid.Row="2"/>
+        <Button x:Name="Btn_delete" Grid.Column="3" Content="Delete" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="60" Click="Btn_delete_Click" Grid.Row="1"/>
+        <Button x:Name="Btn_AddFiles" Grid.Column="2" Content="Add files" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="60" Click="Btn_AddFiles_Click" Grid.Row="1" />
+        <Button x:Name="Btn_deleteAll" Grid.Column="4" Content="Delete all" HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="80" Click="Btn_deleteAll_Click" Grid.Row="1"/>
+        <Label Content="File list" HorizontalAlignment="Center" VerticalAlignment="Center" Height="26" Width="70" Grid.Row="1"/>
+        <Label Content="Pattern list" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="25" Width="70"/>
+        <Button x:Name="Btn_addPattern" Grid.Column="2" Content="Add" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="25" Width="60" Click="Btn_addPattern_Click"/>
+        <Button x:Name="Btn_delPattern" Grid.Column="3" Content="Delete" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="25" Width="60" Click="Btn_delPattern_Click"/>
+        <Button x:Name="Btn_delAllPattern" Grid.Column="4" Content="Delete all" HorizontalAlignment="Center" Grid.Row="3" VerticalAlignment="Center" Height="25" Width="80" Click="Btn_delAllPattern_Click"/>
+        <ListBox x:Name="Tbx_patterns" Grid.Row="4" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="5" Margin="10,10,10,10"/>
+        <Button x:Name="Btn_purge" Grid.Column="4" Content="Purge files" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="80" Click="Btn_Purge_Click" Height="25"/>
+        <Button x:Name="Btn_save" Grid.Column="2" Content="Save" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="60" Height="25" Click="Btn_save_Click"/>
+        <Button x:Name="Btn_load" Grid.Column="3" Content="Load" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="60" Height="25" Click="Btn_load_Click"/>
+        <TextBox x:Name="Tf_pattern" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" Height="21" Margin="10,0,10,0"/>
+        <Label Content="by Philipp Unger" HorizontalAlignment="Left" Margin="0,18,0,0" Grid.Row="5" VerticalAlignment="Top" Opacity="0.15" FontStyle="Italic" FontSize="9" Height="22" Width="75"/>
+        <Label Content="Base folder" HorizontalAlignment="Center" VerticalAlignment="Center" Width="70"/>
+        <TextBox x:Name="Tbx_baseFolder" Grid.Column="1" TextWrapping="Wrap" Text="Select a folder..." VerticalAlignment="Center" IsReadOnly="True" Margin="10,0,10,0"/>
+        <Button x:Name="Btn_openFolder" Grid.Column="2" Content="Open" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Click="Btn_openFolder_Click" Height="25"/>
+    </Grid>
+</Window>
