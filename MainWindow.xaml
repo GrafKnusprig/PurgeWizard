@@ -68,7 +68,7 @@
         <Button x:Name="Btn_save" Grid.Column="2" Content="Save" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="60" Height="25" Click="Btn_save_Click" ToolTip="Save you lists"/>
         <Button x:Name="Btn_load" Grid.Column="3" Content="Load" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="60" Height="25" Click="Btn_load_Click" ToolTip="Load your lists"/>
         <TextBox x:Name="Tf_pattern" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" Height="22" Margin="10,0,10,0" Grid.ColumnSpan="3" ToolTip="Insert a pattern. You can use stuff like '*mytext*' or 'my?ext'."/>
-        <Label Content="by Philipp Unger" HorizontalAlignment="Left" Margin="0,18,0,0" Grid.Row="5" VerticalAlignment="Top" Opacity="0.15" FontStyle="Italic" FontSize="9" Height="22" Width="75"/>
+        <Label Content="by Philipp Unger" HorizontalAlignment="Left" Margin="0,18,0,0" Grid.Row="5" VerticalAlignment="Bottom" Opacity="0.15" FontStyle="Italic" FontSize="9" Height="22" Width="75"/>
         <Label Content="Base folder" HorizontalAlignment="Center" VerticalAlignment="Center" Width="70"/>
         <TextBox x:Name="Tbx_baseFolder" Grid.Column="1" TextWrapping="Wrap" Text="Select a folder..." VerticalAlignment="Center" IsReadOnly="True" Margin="10,0,10,0" Grid.ColumnSpan="3" ToolTip="Path to your base folder."/>
     </Grid>

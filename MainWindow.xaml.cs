@@ -1,5 +1,6 @@
 ﻿using AdonisUI.Controls;
 using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -184,15 +185,38 @@ namespace PurgeWizard
         {
             var dialog = new Microsoft.Win32.OpenFileDialog();
             dialog.DefaultExt = ".pwiz";
-            dialog.Filter = "PWIZ|*.pwiz";
+            dialog.Filter = "PWIZ|*.pwiz|Text|*.txt";
             if (dialog.ShowDialog() == true)
             {
-                LoadFromXml(dialog.FileName);
-                Updatell();
+                if (dialog.FileName.EndsWith("pwiz"))
+                {
+                    LoadFromXml(dialog.FileName);
+                    UpdateAll();
+                }
+                else if (dialog.FileName.EndsWith("txt"))
+                {
+                    LoadFilesFromTxt(dialog.FileName);
+                    UpdateAll();
+                }
             }
         }
 
-        private void Updatell()
+        private void LoadFilesFromTxt(string fileName)
+        {
+            var list = new List<string>();
+            list.AddRange(File.ReadAllLines(fileName));
+            foreach (var line in list)
+            {
+                try
+                {
+                    var filtered = line.Replace("\"", "");
+                    context.FileList.Add(Path.GetFileName(filtered));
+                }
+                catch { }
+            }
+        }
+
+        private void UpdateAll()
         {
             UpdateFilesList();
             UpdatePatterns();
