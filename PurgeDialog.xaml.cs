@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AdonisUI.Controls;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace PurgeWizard
     /// <summary>
     /// Interaction logic for PurgeDialoge.xaml
     /// </summary>
-    public partial class PurgeDialog : Window
+    public partial class PurgeDialog : AdonisWindow
     {
         private Context context = new Context();
         private List<string> foundFiles = new List<string>();
@@ -31,7 +32,7 @@ namespace PurgeWizard
 
             if (string.IsNullOrEmpty(context.BaseFolder))
             {
-                Txtbx_PurgeDialoge.Text = "Base folde path is empty.";
+                Txtbx_PurgeDialoge.Text = "Base folder path is empty.";
                 return;
             }
 
@@ -66,7 +67,7 @@ namespace PurgeWizard
 
             patternFilesList.Distinct().ToString();
 
-            if (context.Patterns.Any())
+            if (context.Patterns.Any() && patternFilesList.Any())
                 stringBuilder.AppendLine("Found pattern files:");
 
             foreach (var file in patternFilesList)

@@ -1,15 +1,11 @@
-﻿using Microsoft.Win32;
+﻿using AdonisUI.Controls;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text.Json.Serialization;
 using System.Windows;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace PurgeWizard
 {
@@ -37,12 +33,12 @@ namespace PurgeWizard
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : AdonisWindow
     {
         private Context context = new Context();
         public MainWindow()
         {
-            WindowStartupLocation = System.Windows.WindowStartupLocation.CenterScreen;
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
         }
 
