@@ -1,6 +1,5 @@
 ﻿using AdonisUI.Controls;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -41,6 +40,11 @@ namespace PurgeWizard
         {
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
+
+            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            System.Diagnostics.FileVersionInfo fvi = System.Diagnostics.FileVersionInfo.GetVersionInfo(assembly.Location);
+
+            Title = Title += " v" + fvi.FileVersion;
         }
 
         private void UpdateFilesList()
@@ -185,17 +189,12 @@ namespace PurgeWizard
         {
             var dialog = new Microsoft.Win32.OpenFileDialog();
             dialog.DefaultExt = ".pwiz";
-            dialog.Filter = "PWIZ|*.pwiz|Text|*.txt";
+            dialog.Filter = "PWIZ|*.pwiz";
             if (dialog.ShowDialog() == true)
             {
                 if (dialog.FileName.EndsWith("pwiz"))
                 {
                     LoadFromXml(dialog.FileName);
-                    UpdateAll();
-                }
-                else if (dialog.FileName.EndsWith("txt"))
-                {
-                    LoadFilesFromTxt(dialog.FileName);
                     UpdateAll();
                 }
             }
@@ -226,6 +225,41 @@ namespace PurgeWizard
         private void UpdateBasePath()
         {
             Tbx_baseFolder.Text = context.BaseFolder;
+        }
+
+        private void Btn_importFiles_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.DefaultExt = ".txt";
+            dialog.Filter = "Text|*.txt";
+            if (dialog.ShowDialog() == true)
+            {
+                if (dialog.FileName.EndsWith("txt"))
+                {
+                    LoadFilesFromTxt(dialog.FileName);
+                    UpdateAll();
+                }
+            }
+        }
+
+        private void Btn_importPatterns_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new Microsoft.Win32.OpenFileDialog();
+            dialog.DefaultExt = ".txt";
+            dialog.Filter = "Text|*.txt";
+            if (dialog.ShowDialog() == true)
+            {
+                if (dialog.FileName.EndsWith("txt"))
+                {
+                    LoadPatternsFromTxt(dialog.FileName);
+                    UpdateAll();
+                }
+            }
+        }
+
+        private void LoadPatternsFromTxt(string fileName)
+        {
+            context.Patterns.AddRange(File.ReadAllLines(fileName));
         }
     }
 }

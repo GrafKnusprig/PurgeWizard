@@ -61,8 +61,15 @@ namespace PurgeWizard
 
             foreach (var pattern in context.Patterns)
             {
-                var allFiles = Directory.GetFiles(context.BaseFolder, pattern);
-                patternFilesList.AddRange(allFiles);
+                try
+                {
+                    var allFiles = Directory.GetFiles(context.BaseFolder, pattern);
+                    patternFilesList.AddRange(allFiles);
+                }
+                catch
+                {
+                    stringBuilder.AppendLine("Error! \"" + pattern + "\" is not a valid pattern.");
+                }
             }
 
             patternFilesList.Distinct().ToString();
@@ -80,13 +87,12 @@ namespace PurgeWizard
             if (foundFiles.Count > 0)
             {
                 Btn_doFinalPurge.IsEnabled = true;
-                Txtbx_PurgeDialoge.Text = stringBuilder.ToString();
             }
             else
             {
-                Txtbx_PurgeDialoge.Text = "No files found.";
+                stringBuilder.Append("No files found.");
             }
-
+            Txtbx_PurgeDialoge.Text = stringBuilder.ToString();
         }
 
         private void Btn_Cancel_Click(object sender, RoutedEventArgs e)

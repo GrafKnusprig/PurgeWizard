@@ -8,7 +8,7 @@
         xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
         xmlns:local="clr-namespace:PurgeWizard"
         mc:Ignorable="d"
-        Title="PurgeWizard" Height="548" Width="710" Icon="/icons/wizard.ico">
+        Title="PurgeWizard" Height="548" Width="710" Icon="/icons/wizard.ico" MinHeight="400" MinWidth="600">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="98*" MaxWidth="90" MinWidth="90"/>
@@ -67,9 +67,11 @@
         <Button x:Name="Btn_purge" Grid.Column="4" Content="Purge files" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="80" Click="Btn_Purge_Click" Height="25" ToolTip="Open the purge dialog"/>
         <Button x:Name="Btn_save" Grid.Column="2" Content="Save" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="60" Height="25" Click="Btn_save_Click" ToolTip="Save you lists"/>
         <Button x:Name="Btn_load" Grid.Column="3" Content="Load" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="60" Height="25" Click="Btn_load_Click" ToolTip="Load your lists"/>
-        <TextBox x:Name="Tf_pattern" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" Height="22" Margin="10,0,10,0" Grid.ColumnSpan="3" ToolTip="Insert a pattern. You can use stuff like '*mytext*' or 'my?ext'."/>
+        <TextBox x:Name="Tf_pattern" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" Height="22" Margin="10,0,10,0" Grid.ColumnSpan="2" ToolTip="Insert a pattern. You can use stuff like '*mytext*' or 'my?ext'."/>
         <Label Content="by Philipp Unger" HorizontalAlignment="Left" Margin="0,18,0,0" Grid.Row="5" VerticalAlignment="Bottom" Opacity="0.15" FontStyle="Italic" FontSize="9" Height="22" Width="75"/>
         <Label Content="Base folder" HorizontalAlignment="Center" VerticalAlignment="Center" Width="70"/>
         <TextBox x:Name="Tbx_baseFolder" Grid.Column="1" TextWrapping="Wrap" Text="Select a folder..." VerticalAlignment="Center" IsReadOnly="True" Margin="10,0,10,0" Grid.ColumnSpan="3" ToolTip="Path to your base folder."/>
+        <Button x:Name="Btn_importPatterns" Content="Import" Grid.Column="3" Grid.Row="3" Height="26" Width="60" Click="Btn_importPatterns_Click"/>
+        <Button x:Name="Btn_importFiles" Grid.Column="3" Content="Import"  Grid.Row="1" Height="26" Width="60" Click="Btn_importFiles_Click"/>
     </Grid>
 </adonisControls:AdonisWindow>

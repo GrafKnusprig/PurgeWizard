@@ -7,7 +7,7 @@
         xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
         xmlns:local="clr-namespace:PurgeWizard"
         mc:Ignorable="d"
-        Title="PurgeWizard" Icon="/icons/wizard.ico" Height="450" Width="800">
+        Title="PurgeWizard" Icon="/icons/wizard.ico" Height="450" Width="800" MinHeight="400" MinWidth="600">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
